@@ -1,0 +1,113 @@
+﻿@model IEnumerable<Employee>
+
+<h1 class="alert alert-primary text-center m-3">
+    Employee Index
+</h1>
+
+<form method="get" asp-controller="Employees" asp-action="GetIndexView">
+    <div class="input-group">
+        <input name="search" value="@ViewBag.CurrentSearch" />
+        <button type="submit" class="btn btn-secondary"><i class="bi bi-search"></i></button>
+    </div>
+</form>
+
+<a asp-controller="Employees" asp-action="GetCreateView" class="btn btn-success mt-3" >
+    Create New
+</a>
+
+
+
+@if (Model.Count() > 0)
+{
+    <table class="table table-bordered table-hover caption-top text-center">
+        <caption class="text-center fs-1">Staff</caption>
+        <thead class="table-dark">
+            <tr>
+                <th>@Html.DisplayNameFor(emp=>emp.Id)</th>
+                <th>@Html.DisplayNameFor(emp => emp.FullName)</th>
+                <th>@Html.DisplayNameFor(emp => emp.Position)</th>
+                <th>@Html.DisplayNameFor(emp => emp.Salary)</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var employee in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(m => employee.Id)</td>
+                    <td>@Html.DisplayFor(m => employee.FullName)</td>
+                    <td>@Html.DisplayFor(m => employee.Position)</td>
+                    <td>@Html.DisplayFor(m => employee.Salary)</td>
+                    <th>  <img src="@employee.ImagePath" style="object-fit:contain" class="col-4" /> </th>
+
+                    <td>
+                        <a asp-controller="Employees" asp-action="GetDetailsView" asp-route-id="@employee.Id" class="btn btn-outline-primary" title="Details">
+                            <i class="bi bi-list-ul"></i>
+                        </a>
+                        <a asp-controller="Employees" asp-action="GetEditView" asp-route-id="@employee.Id" class="btn btn-outline-secondary" title="Edit">
+                            <i class="bi bi-pencil-square"></i>
+                        </a>
+                        <a asp-controller="Employees" asp-action="GetDeleteView" asp-route-id="@employee.Id" class="btn btn-outline-danger" title="Delete">
+                            <i class="bi bi-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr class="table-dark">
+                <th colspan="3" class="text-end">Total</th>
+                <th>@Model.Sum(emp => emp.Salary)</th>
+                <th></th>
+            </tr>
+        </tfoot>
+    </table>
+}
+else
+{
+    <h1 class="alert alert-danger text-center m-3">No data to display</h1>
+}
+
+<div>
+    @foreach (var employee in Model)
+    {
+        <div class="card text-center mb-1 col-3 d-inline-block">
+            <div class="card-header">@employee.FullName</div>
+            <div class="card-body">
+                <h3>@employee.Position</h3>
+            </div>
+            <div class="card-footer">
+                @employee.Salary
+            </div>
+        </div>
+    }
+</div>
+<div>
+    @foreach (var employee in Model)
+    {
+        <div class="card text-center mb-1 col-3 d-inline-block bg-primary text-white">
+            <div class="card-header">@employee.FullName</div>
+            <div class="card-body">
+                <h3>@employee.Position</h3>
+            </div>
+            <div class="card-footer">
+                @employee.Salary
+            </div>
+        </div>
+    }
+</div>
+<div>
+    @foreach (var employee in Model)
+    {
+        <div class="card text-center mb-1 col-3 d-inline-block bg-transparent border-success">
+            <div class="card-header bg-transparent border-success">@employee.FullName</div>
+            <div class="card-body bg-transparent border-success">
+                <h3>@employee.Position</h3>
+            </div>
+            <div class="card-footer bg-transparent border-success">
+                @employee.Salary
+            </div>
+        </div>
+    }
+</div>
+

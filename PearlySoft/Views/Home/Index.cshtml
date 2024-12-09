@@ -1,0 +1,39 @@
+﻿<h1 style="text-align:center; background-color:aqua; color:brown;">
+    Pearly Soft
+</h1>
+<h1 class="alert alert-success text-center">
+    Pearly Soft
+</h1>
+
+@*Code Block*@
+@{
+    const string company = "Pearly Soft Company";
+    string manager = "Osama Ahmed Omar";
+
+    string greetVisitor()
+    {
+        return "Welcome to Pearly Soft!";
+    }
+}
+
+@*Inline Expression*@
+<h2 class="alert alert-info">@company</h2>
+<h2 class="alert alert-secondary">@manager</h2>
+<h2 class="alert alert-warning">@company's Manager: @manager</h2>
+<h2 class="alert alert-dark text-white">@greetVisitor()</h2>
+<h3 class="alert alert-primary">@DateTime.Now</h3>
+<h3 class="alert alert-danger">@(20 + 5 * 7)</h3>
+
+@if (DateTime.Now.Hour >= 4 && DateTime.Now.Hour < 12)
+{
+    <h3 class="alert alert-success text-center m-3">Good morning</h3>
+}
+else if (DateTime.Now.Hour >= 12 && DateTime.Now.Hour < 20)
+{
+    <h3 class="alert alert-success text-center m-3">Good afternoon</h3>
+}
+else
+{
+    <h3 class="alert alert-success text-center m-3">Good evening</h3>
+}
+

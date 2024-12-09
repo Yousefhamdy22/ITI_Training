@@ -1,0 +1,116 @@
+﻿@model Employee
+<h1 class="alert alert-warning text-center m-3">
+    Create New Employee
+</h1>
+
+<form method="post" asp-controller="Employees" asp-action="AddNew" class="col-6" enctype="multipart/form-data">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="mb-3">
+        <label asp-for="FullName" class="form-label">@Html.DisplayNameFor(emp=>emp.FullName)</label>
+        <input asp-for="FullName" class="form-control"/>
+        <span asp-validation-for="FullName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Position" class="form-label">@Html.DisplayNameFor(emp => emp.Position)</label>
+        <input asp-for="Position" class="form-control" />
+        <span asp-validation-for="Position" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Salary" class="form-label">@Html.DisplayNameFor(emp => emp.Salary)</label>
+        <input type="number" value="0" asp-for="Salary" class="form-control" />
+        <span asp-validation-for="Salary" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="NationalId" class="form-label">@Html.DisplayNameFor(emp => emp.NationalId)</label>
+        <input asp-for="NationalId" class="form-control" />
+        <span asp-validation-for="NationalId" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="PhoneNo" class="form-label">@Html.DisplayNameFor(emp => emp.PhoneNo)</label>
+        <input asp-for="PhoneNo" class="form-control" />
+        <span asp-validation-for="PhoneNo" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Email" class="form-label">@Html.DisplayNameFor(emp => emp.Email)</label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ConfirmEmail" class="form-label">@Html.DisplayNameFor(emp => emp.ConfirmEmail)</label>
+        <input asp-for="ConfirmEmail" class="form-control" />
+        <span asp-validation-for="ConfirmEmail" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="SecretCode" class="form-label">@Html.DisplayNameFor(emp => emp.SecretCode)</label>
+        <input asp-for="SecretCode" class="form-control" />
+        <span asp-validation-for="SecretCode" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ConfirmSecretCode" class="form-label">@Html.DisplayNameFor(emp => emp.ConfirmSecretCode)</label>
+        <input asp-for="ConfirmSecretCode" class="form-control" />
+        <span asp-validation-for="ConfirmSecretCode" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="IsActive" class="form-label">@Html.DisplayNameFor(emp => emp.IsActive)</label>
+        <input type="checkbox" asp-for="IsActive" />
+        <span asp-validation-for="IsActive" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Appraisal" class="form-label">@Html.DisplayNameFor(emp => emp.Appraisal)</label>
+        <input type="number" asp-for="Appraisal" class="form-control" />
+        <span asp-validation-for="Appraisal" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="BirthDate" class="form-label">@Html.DisplayNameFor(emp => emp.BirthDate)</label>
+        <input asp-for="BirthDate" class="form-control" />
+        <span asp-validation-for="BirthDate" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="AttendanceTime" class="form-label">@Html.DisplayNameFor(emp => emp.AttendanceTime)</label>
+        <input asp-for="AttendanceTime" class="form-control" />
+        <span asp-validation-for="AttendanceTime" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="HiringDateTime" class="form-label">@Html.DisplayNameFor(emp => emp.HiringDateTime)</label>
+        <input asp-for="HiringDateTime" class="form-control" />
+        <span asp-validation-for="HiringDateTime" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="DepartmentId">@Html.DisplayNameFor(emp => emp.DepartmentId)</label>
+        <select asp-for="DepartmentId" class="form-control" 
+        asp-items="@(new SelectList(ViewBag.AllDepartments, "Id", "Name"))">
+            <option value="0" disabled selected>--Select Department--</option>
+        </select>
+        <span asp-validation-for="DepartmentId" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ImagePath" class="form-label"></label>
+        <input type="file" asp-for="ImageFile" accept=".png,.jpg" class="form-control" />
+
+    </div>
+    <div class="mb-3">
+        <label asp-for="Notes" class="form-label">@Html.DisplayNameFor(emp => emp.Notes)</label>
+        <input asp-for="Notes" class="form-control" />
+        <span asp-validation-for="Notes" class="text-danger"></span>
+    </div> 
+    
+
+    <button type="submit" class="btn btn-primary">Add</button>
+</form>
+
+<a asp-controller="Employees" asp-action="GetIndexView">Back to List</a>

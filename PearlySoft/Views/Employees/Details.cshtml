@@ -1,0 +1,69 @@
+﻿@model Employee
+
+<h1 class="alert alert-info text-center m-3">
+    @Model.FullName's Details
+</h1>
+
+<div class="row">
+<dl class="row col-6">
+    <dt class="col-3">@Html.DisplayNameFor(emp=>emp.Id)</dt>
+    <dd class="col-9">@Html.DisplayFor(emp => emp.Id)</dd>
+
+    <dt class="col-3">@Html.DisplayNameFor(emp=>emp.FullName)</dt>
+    <dd class="col-9">@Html.DisplayFor(emp => emp.FullName)</dd>
+
+    <dt class="col-3">@Html.DisplayNameFor(emp => emp.Position)</dt>
+    <dd class="col-9">@Html.DisplayFor(emp => emp.Position)</dd>
+
+    <dt class="col-3">@Html.DisplayNameFor(emp => emp.Salary)</dt>
+    <dd class="col-9">@Html.DisplayFor(emp => emp.Salary)</dd>
+
+    <dt class="col-3">@Html.DisplayNameFor(emp => emp.NationalId)</dt>
+    <dd class="col-9">@Html.DisplayFor(emp => emp.NationalId)</dd>
+
+    <dt class="col-3">@Html.DisplayNameFor(emp => emp.PhoneNo)</dt>
+    <dd class="col-9">@Html.DisplayFor(emp => emp.PhoneNo)</dd>
+
+    <dt class="col-3">@Html.DisplayNameFor(emp => emp.Email)</dt>
+    <dd class="col-9">@Html.DisplayFor(emp => emp.Email)</dd>
+
+    <dt class="col-3">@Html.DisplayNameFor(emp => emp.SecretCode)</dt>
+    <dd class="col-9">@Html.DisplayFor(emp => emp.SecretCode)</dd>
+
+    <dt class="col-3">@Html.DisplayNameFor(emp => emp.IsActive)</dt>
+    <dd class="col-9">@Html.DisplayFor(emp => emp.IsActive)</dd>
+
+    <dt class="col-3">@Html.DisplayNameFor(emp => emp.Appraisal)</dt>
+    <dd class="col-9">@Html.DisplayFor(emp => emp.Appraisal)</dd>
+
+    <dt class="col-3">@Html.DisplayNameFor(emp => emp.BirthDate)</dt>
+    <dd class="col-9">@Html.DisplayFor(emp => emp.BirthDate)</dd>
+
+    <dt class="col-3">@Html.DisplayNameFor(emp => emp.AttendanceTime)</dt>
+    <dd class="col-9">@Html.DisplayFor(emp => emp.AttendanceTime)</dd>
+
+    <dt class="col-3">@Html.DisplayNameFor(emp => emp.HiringDateTime)</dt>
+    <dd class="col-9">@Html.DisplayFor(emp => emp.HiringDateTime)</dd>
+
+    <dt class="col-3">@Html.DisplayNameFor(emp => emp.DepartmentId)</dt>
+    <dd class="col-9">@Html.DisplayFor(emp => emp.Department.Name) (@Html.DisplayFor(emp=>emp.Department.Description))</dd>
+
+    <dt class="col-3">@Html.DisplayNameFor(emp => emp.Notes)</dt>
+    <dd class="col-9">@Html.DisplayFor(emp => emp.Notes)</dd>
+
+</dl>
+
+    <img src="@Model.ImagePath" style="object-fit:contain" class="col-4" asp-append-version="true" />
+
+
+</div>
+<table class="table table-bordered">
+    <tbody>
+        <tr><th>Id</th><td>@Model.Id</td></tr>
+        <tr><th>Full Name</th><td>@Model.FullName</td></tr>
+        <tr><th>Position</th><td>@Model.Position</td></tr>
+        <tr><th>Salary</th><td>@Model.Salary</td></tr>
+    </tbody>
+</table>
+
+<a asp-controller="Employees" asp-action="GetIndexView">Back to List</a>
